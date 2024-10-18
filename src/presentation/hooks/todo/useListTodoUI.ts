@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useUseCases from "../useUseCases";
 import { Todo } from "../../../domain/entities/Todo";
 
@@ -19,9 +19,9 @@ function useListTodoUi(): {
     listTodoUI();
   }, [listTodo]);
 
-  const handleOnChangeTodo = (todoId: number) => {
+  const handleOnChangeTodo = useCallback((todoId: number) => {
     console.log(`changed todo ${todoId}`);
-  };
+  }, []);
 
   return { todos, handleOnChangeTodo };
 }

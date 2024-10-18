@@ -1,4 +1,5 @@
 import { Todo } from "../../../domain/entities/Todo";
+import TodoItem from "../todoItem/TodoItem";
 
 interface TodoListProps {
   todos: Todo[];
@@ -10,16 +11,11 @@ function TodoList({ todos, handleOnChangeTodo }: TodoListProps) {
     <ul>
       {todos.map((todo) => {
         return (
-          <li key={todo.id}>
-            <label>
-              <input
-                type="checkbox"
-                checked={todo.completed}
-                onChange={() => handleOnChangeTodo(todo.id)}
-              />
-              {todo.title}
-            </label>
-          </li>
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            handleOnChangeTodo={handleOnChangeTodo}
+          />
         );
       })}
     </ul>
