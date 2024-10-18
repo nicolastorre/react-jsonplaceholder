@@ -1,9 +1,15 @@
 import { Outlet } from "react-router-dom";
+import Navigation from "../components/navigation/Navigation";
 
 function RootLayout() {
   return (
     <div>
-      <Outlet />
+      <div id="nav">
+        <Navigation />
+      </div>
+      <div id="main">
+        <Outlet />
+      </div>
     </div>
   );
 }
